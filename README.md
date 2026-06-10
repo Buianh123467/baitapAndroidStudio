@@ -381,3 +381,11 @@ creat file dulich.java
 Xóa hết code tự sinh bên trong đi và viết lại code chuẩn package vào
 
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/49d9f3b0-38f9-4971-abb0-b5fdf94c7e9f" />
+
+Tạo bộ nạp dữ liệu lên màn hình
+
+Tạo tiếp một Class Java tên là Duliapp File này đóng vai trò cầu nối, lấy dữ liệu từ file JSON đổ vào file giao diện
+
+Mở file MainActivity.java có sẵn ra và cập nhật lại toàn bộ code để thực hiện việc: Đọc file JSON từ Assets -> Chạy thuật toán tìm kiếm tuyến tính
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/572db784-9ee8-4695-a275-8914d08e0ee0" />
