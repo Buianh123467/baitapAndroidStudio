@@ -1,1 +1,323 @@
 # baitapAndroidStudio
+
+họ và tên : bùi ngọc anh
+
+lớp k58.ktp
+
+mssv : k225510201001
+
+YÊU CẦU:
+Viết App sử dụng Android Studio:
+
+1. Tạo app1 sử dụng cơ chế Dữ liệu chuẩn bị trước trong Assets
+  
+2.  APP2 (android studio): tạo app tương đương với Mit App inventor, app có 3 activity
+
+   Lý thuyết
+
+## 1. AndroidManifest.xml
+
+AndroidManifest.xml là tập tin cấu hình trung tâm của ứng dụng Android. Tập tin này dùng để khai báo các thành phần của ứng dụng như Activity, quyền truy cập (Permission), tên ứng dụng, biểu tượng ứng dụng và các thông tin cấu hình khác.
+
+Ví dụ, nếu ứng dụng cần truy cập Internet để tải dữ liệu du lịch từ máy chủ thì cần khai báo:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+Trong ứng dụng Cẩm nang Du lịch Thái Nguyên, AndroidManifest.xml được sử dụng để khai báo các Activity như MainActivity và DetailActivity.
+
+---
+
+## 2. Vòng đời của Activity trong Android
+
+Mỗi Activity trong Android đều trải qua các trạng thái khác nhau trong quá trình hoạt động.
+
+Các phương thức chính:
+
+* onCreate(): khởi tạo Activity.
+* onStart(): Activity bắt đầu hiển thị.
+* onResume(): Activity sẵn sàng tương tác với người dùng.
+* onPause(): Activity tạm dừng.
+* onStop(): Activity không còn hiển thị.
+* onDestroy(): Activity bị hủy.
+
+Trình tự phổ biến:
+
+onCreate → onStart → onResume
+
+Khi thoát ứng dụng:
+
+onPause → onStop → onDestroy
+
+---
+
+## 3. Tại sao project mới tạo đã có hàm onCreate()?
+
+Khi tạo một project Android mới, Android Studio tự động sinh ra hàm onCreate().
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+```
+
+Hàm này được gọi khi Activity được tạo lần đầu tiên. Đây là nơi dùng để khởi tạo giao diện, đọc dữ liệu, gán sự kiện và thực hiện các thao tác chuẩn bị cho màn hình.
+
+---
+
+## 4. Kiểm tra quyền trong Java
+
+Một số quyền thuộc nhóm nguy hiểm (Dangerous Permission) cần được kiểm tra khi chạy ứng dụng.
+
+Ví dụ:
+
+```java
+if (ContextCompat.checkSelfPermission(
+        this,
+        Manifest.permission.ACCESS_FINE_LOCATION)
+        != PackageManager.PERMISSION_GRANTED) {
+
+    ActivityCompat.requestPermissions(
+            this,
+            new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION
+            },
+            1);
+}
+```
+
+Ý nghĩa:
+
+* checkSelfPermission(): kiểm tra đã được cấp quyền hay chưa.
+* requestPermissions(): yêu cầu người dùng cấp quyền.
+
+---
+
+## 5. Giao diện XML trong thư mục res/layout
+
+Giao diện Android được mô tả bằng các file XML trong thư mục:
+
+```text
+res/layout
+```
+
+Ví dụ:
+
+```xml
+<TextView
+    android:id="@+id/txtTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name"/>
+```
+
+Android Studio hỗ trợ hai chế độ:
+
+* Code XML.
+* Design Preview (kéo thả giao diện).
+
+---
+
+## 6. Tại sao không nên Hardcode văn bản?
+
+Không nên viết:
+
+```xml
+android:text="Cẩm nang du lịch Thái Nguyên"
+```
+
+Nên lưu trong:
+
+```xml
+res/values/strings.xml
+```
+
+Ví dụ:
+
+```xml
+<string name="app_name">
+    Cẩm nang du lịch Thái Nguyên
+</string>
+```
+
+Sau đó tham chiếu:
+
+```xml
+android:text="@string/app_name"
+```
+
+Hoặc trong Java:
+
+```java
+textView.setText(R.string.app_name);
+```
+
+### Ưu điểm
+
+* Dễ bảo trì.
+* Hỗ trợ đa ngôn ngữ.
+* Hỗ trợ giao diện sáng/tối.
+* Dễ tái sử dụng.
+
+---
+
+## 7. Hỗ trợ Language, Location và Theme
+
+Android có thể tự động chọn tài nguyên phù hợp theo:
+
+* Ngôn ngữ (Language).
+* Khu vực (Location).
+* Chủ đề giao diện (Theme).
+
+Ví dụ:
+
+```text
+values/
+values-en/
+values-ja/
+```
+
+Khi người dùng đổi ngôn ngữ thiết bị, ứng dụng sẽ tự động hiển thị đúng ngôn ngữ tương ứng mà không cần sửa mã nguồn.
+
+Điều này giúp ứng dụng có khả năng quốc tế hóa (Internationalization).
+
+---
+
+## 8. Layout chứa các thành phần con
+
+Android cung cấp nhiều Layout để sắp xếp giao diện.
+
+Ví dụ:
+
+### LinearLayout
+
+Sắp xếp theo chiều dọc:
+
+```xml
+android:orientation="vertical"
+```
+
+Sắp xếp theo chiều ngang:
+
+```xml
+android:orientation="horizontal"
+```
+
+Canh giữa:
+
+```xml
+android:gravity="center"
+```
+
+Trong ứng dụng Cẩm nang Du lịch Thái Nguyên, LinearLayout được dùng để bố trí ảnh, tên địa điểm và mô tả.
+
+---
+
+## 9. Tương tác giữa Java và Layout
+
+Khai báo trong XML:
+
+```xml
+<TextView
+    android:id="@+id/txtName"/>
+```
+
+Trong Java:
+
+```java
+TextView txtName =
+        findViewById(R.id.txtName);
+
+txtName.setText(
+        getString(R.string.app_name));
+```
+
+Sử dụng getString() giúp văn bản tự động thay đổi theo ngôn ngữ của hệ thống.
+
+---
+
+## 10. Xử lý sự kiện (Event)
+
+### Cách 1: Khai báo trong XML
+
+XML:
+
+```xml
+<Button
+    android:onClick="showDetail"/>
+```
+
+Java:
+
+```java
+public void showDetail(View view){
+    // xử lý
+}
+```
+
+### Cách 2: Dùng OnClickListener
+
+```java
+Button btn =
+        findViewById(R.id.btnOpen);
+
+btn.setOnClickListener(v -> {
+    // xử lý
+});
+```
+
+Cách thứ hai được sử dụng phổ biến hơn vì dễ quản lý và bảo trì.
+
+---
+
+## 11. Thư mục Assets
+
+Assets là thư mục đặc biệt dùng để chứa dữ liệu đi kèm ứng dụng.
+
+Ví dụ:
+
+```text
+assets/
+ └── du_lich_tn.json
+```
+
+Khi biên dịch ứng dụng, toàn bộ dữ liệu trong Assets sẽ được đóng gói vào file APK.
+
+---
+
+## 12. Truy cập dữ liệu trong Assets
+
+Ví dụ đọc file JSON:
+
+```java
+InputStream is =
+        getAssets().open("du_lich_tn.json");
+```
+
+Sau đó sử dụng InputStreamReader và BufferedReader để đọc nội dung.
+
+---
+
+## 13. Lợi ích của Assets
+
+* Hoạt động khi không có Internet.
+* Tốc độ truy cập nhanh.
+* Dữ liệu luôn đi kèm ứng dụng.
+* Không phụ thuộc máy chủ bên ngoài.
+
+---
+
+## 14. Ứng dụng trong đề tài
+
+Ứng dụng Cẩm nang Du lịch Thái Nguyên sử dụng file JSON lưu trong thư mục Assets để lưu thông tin các địa điểm du lịch như:
+
+* Hồ Núi Cốc
+* Đồi chè Tân Cương
+* ATK Định Hóa
+* Hang Phượng Hoàng
+
+Khi khởi động, ứng dụng đọc dữ liệu từ Assets, phân tích JSON và hiển thị danh sách địa điểm cho người dùng. Vì dữ liệu được lưu trực tiếp trong ứng dụng nên người dùng vẫn có thể tra cứu thông tin ngay cả khi không có kết nối Internet.
+
