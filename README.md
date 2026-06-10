@@ -321,3 +321,63 @@ Sau đó sử dụng InputStreamReader và BufferedReader để đọc nội dun
 
 Khi khởi động, ứng dụng đọc dữ liệu từ Assets, phân tích JSON và hiển thị danh sách địa điểm cho người dùng. Vì dữ liệu được lưu trực tiếp trong ứng dụng nên người dùng vẫn có thể tra cứu thông tin ngay cả khi không có kết nối Internet.
 
+bài 1 : TẠO APP1: sử dụng cơ chế Dữ liệu chuẩn bị trước trong Assets
+
+tên đề tài : cẩm nang du lịch thái nguyên
+
+Dữ liệu sử dụng
+
+Ứng dụng sử dụng dữ liệu được chuẩn bị trước và lưu trong thư mục Assets dưới dạng tệp JSON.
+
+Mỗi địa điểm du lịch bao gồm các thông tin:
+
+Mã địa điểm. Tên địa điểm. Tỉnh/Thành phố. Mô tả ngắn. Hình ảnh minh họa.
+
+Ứng dụng được xây dựng bằng Android Studio sử dụng ngôn ngữ Java.
+
+Quy trình hoạt động:
+
+Đọc dữ liệu từ tệp JSON trong thư mục Assets. Chuyển dữ liệu JSON thành các đối tượng Java. Hiển thị dữ liệu bằng RecyclerView. Cho phép người dùng tìm kiếm địa điểm theo tên. Cập nhật danh sách kết quả sau khi tìm kiếm.
+
+Ứng dụng hoạt động hoàn toàn offline, không yêu cầu kết nối Internet và đáp ứng đầy đủ yêu cầu sử dụng dữ liệu chuẩn bị trước trong Assets.
+
+tạo projcet 
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d7a8a004-9c68-47a1-91c1-02ad4e8a8df3" />
+
+
+Tạo thư mục Assets
+
+Chọn New -> Directory -> Assets Folder -> Finish. Sau khi nhấn Finish dưới thư mục main sẽ xuất hiện một thư mục tên là Assets
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/bc034103-af52-462a-8ee3-83cfebfe0e92" />
+
+Tạo file dữ liệu DuLich_places.json
+
+hấp chuột phải vào thư mục Assets vừa tạo -> New -> File
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/e89e9f30-5a4f-4e06-95c6-ea7d9e28d784" />
+
+Thêm ảnh vào app
+
+Tìm thư mục app -> res -> drawable. Dán ảnh vào trong drawable
+
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d4254f96-7b7e-438d-8c83-81f749c382ff" />
+
+Thiết kế giao diện XML
+
+Mở file activity_main.xml và chuyển sang chế độ xem Code sau đó sửa lại file activity_main.xml
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/97d4f184-6e41-4c73-bd10-b66157345426" />
+
+Thiết kế ô hiển thị file dulich_travel.xml
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/2a497e88-c818-4256-9c99-859dbe8d54af" />
+
+Tạo dữ liệu mẫu 
+
+creat file dulich.java
+
+Xóa hết code tự sinh bên trong đi và viết lại code chuẩn package vào
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/49d9f3b0-38f9-4971-abb0-b5fdf94c7e9f" />
