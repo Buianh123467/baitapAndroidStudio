@@ -402,4 +402,5 @@ Mở file AndroidManifest.xml và dán dòng lệnh sau nằm trên thẻ <appli
 
 <uses-permission android:name="android.permission.INTERNET" />
 
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c9e5ab1d-f0e5-4413-ae53-d709dfc96d2a" />
 
