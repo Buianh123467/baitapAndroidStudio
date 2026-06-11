@@ -389,3 +389,17 @@ Tạo tiếp một Class Java tên là Duliapp File này đóng vai trò cầu n
 Mở file MainActivity.java có sẵn ra và cập nhật lại toàn bộ code để thực hiện việc: Đọc file JSON từ Assets -> Chạy thuật toán tìm kiếm tuyến tính
 
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/572db784-9ee8-4695-a275-8914d08e0ee0" />
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d89ce1f3-4e94-4504-94c6-4fc9ba6bebd6" />
+
+TẠO APP2
+
+Tạo project mới đặt tên giatoan
+
+Cấp quyền Internet trong AndroidManifest.xml
+
+Mở file AndroidManifest.xml và dán dòng lệnh sau nằm trên thẻ <application>
+
+<uses-permission android:name="android.permission.INTERNET" />
+
+
