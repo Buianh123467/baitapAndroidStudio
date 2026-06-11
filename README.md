@@ -404,3 +404,51 @@ Mở file AndroidManifest.xml và dán dòng lệnh sau nằm trên thẻ <appli
 
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c9e5ab1d-f0e5-4413-ae53-d709dfc96d2a" />
 
+ Tạo các màn hình (Activity2, 3)
+
+ MainActivity sẽ đóng vai trò là Activity 1 (About).
+
+Tạo thêm MathActivity đóng vai trò là Activity 2 (Giải toán).
+
+Tạo thêm WebActivity đóng vai trò là Activity 3 (WebView)
+
+<img width="407" height="249" alt="Image" src="https://github.com/user-attachments/assets/ab4b8c39-f38e-4a82-8d7f-5b96ecf2bcee" />
+
+Thiết kế giao diện XML trong file activity_main.xml
+
+Mở file activity_main.xml trong res/layout/ lên, chuyển sang góc nhìn Code và viết code cấu hình cho giao diện chính:
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/29a95209-5dcd-45ed-84cb-8aed6790e9fe" />
+
+MainActivity.java ra và cập nhật lại code 
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1972adde-5801-4e73-87df-7268cd38d49d" />
+
+Thiết kế giao diện giải toán (activity_math.xml)
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/021372a2-2a40-46f9-9b36-536639c6e2f9" />
+
+Cài thư viện gọi API (OkHttp) vào dự án
+
+Mở file có tên chính xác là: build.gradle.kts (Module: app).
+
+Cuộn xuống dưới cùng của file, tìm khối lệnh có chữ dependencies { ... }
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0773117d-ff88-4ea4-8150-2dc64c8980bc" />
+
+Mở file MathActivity.java ra, xóa code cũ và viết lại code giải phương trình bậc 2 và gọi API gửi lên server:
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/12d002e2-3756-4d42-bc66-4107bb107976" />
+
+ Thiết kế giao diện Webview (activity_web.xml) 
+
+ <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c05c7412-f1ef-4977-92db-eabc75e704db" />
+
+ Viết mã nguồn xử lý logic và truyền Url https://k58kmt.tdh.io.vn
+
+ <img width="566" height="48" alt="Image" src="https://github.com/user-attachments/assets/abaaecaf-0274-49a3-97c6-3fb36b791d7f" />
+
+ Chạy  kết quả
+ <img width="1739" height="3768" alt="Image" src="https://github.com/user-attachments/assets/075b75b8-1873-475e-90a2-6add30c364e5" />
+
+ <img width="1739" height="3768" alt="Image" src="https://github.com/user-attachments/assets/cdfa313d-06ed-4059-b4a8-f8f85d06a51c" />
